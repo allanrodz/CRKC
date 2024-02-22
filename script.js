@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Re-create and append the iframe
             const iframe = document.createElement('iframe');
-            iframe.setAttribute('src', 'https://tunein.com/embed/player/p1830884/');
+            iframe.setAttribute('src', 'http://www.rsstreaming.com:8002/Live?listening_via_radio.ie/tune');
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.frameBorder = 'no';
