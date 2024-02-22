@@ -1,0 +1,206 @@
+/* Global Styles */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Carousel Styles */
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel-items div {
+  display: none;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Navigation Buttons */
+button.prev, button.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 1vw;
+  color: white;
+  font-weight: bold;
+  font-size: calc(10px + 1vw);
+  transition: 0.6s ease;
+  user-select: none;
+  background-color: black;
+}
+
+button.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+  background-color: #FFBF00;
+}
+
+button.prev {
+  left: 0;
+}
+
+button:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Overlay Styles */
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  max-width: 640px;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  cursor: auto;
+}
+
+.podcasts-overlay .overlay-content {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  box-sizing: border-box; /* Include padding and border in the element's size */
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Adjust the .podcasts-overlay specifically for the GIF content */
+.podcasts-overlay .overlay-content img {
+  width: 100%; /* Full width of the content area */
+  max-width: 640px; /* Limit the width to maintain aspect ratio */
+  height: auto; /* Adjust height automatically */
+  aspect-ratio: 9 / 16; /* Maintain a 9:16 aspect ratio for the GIF */
+}
+
+/* Ensure clicking the overlay outside the content closes it */
+.overlay:not(.overlay-content) {
+  cursor: pointer;
+}
+
+/* Schedule Button Styles */
+#openSchedule {
+  display: block;
+  margin: 20px auto;
+  background-color: black;
+  color: #FFBF00;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#openSchedule:hover {
+  background-color: #FFBF00;
+  color: black;
+}
+
+/* Now Playing Banner Styles */
+#now-playing-banner {
+  width: 100%;
+  background-color: #e67e23;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-family: Verdana, sans-serif;
+  font-size: 20px;
+}
+
+#now-playing-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* Radio Toggle Button Styles */
+#togglePlayer {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 20px 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* Animation and Responsiveness */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse {
+  animation: pulse 10s infinite;
+}
+
+@media (max-width: 768px) {
+  button.prev, button.next {
+      font-size: calc(12px + 2vw);
+      padding: 1.5vw;
+      margin-top: -20px;
+  }
+
+  .carousel-items div {
+      padding: 20px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  button.prev, button.next {
+      font-size: calc(14px + 3vw);
+      padding: 2vw;
+      margin-top: -15px;
+  }
+
+  .carousel-items div {
+      padding: 20px 40px;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .text { font-size: 11px; }
+}
