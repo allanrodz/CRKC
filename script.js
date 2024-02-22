@@ -158,27 +158,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Radio Player Toggle
     const toggleButton = document.getElementById('togglePlayer');
-    const icon = toggleButton.querySelector('i'); // Select the icon within the button
-    const playerContainer = document.getElementById('playerContainer');
+    const radioStream = document.getElementById('radioStream');
     let playerActive = true;
 
     toggleButton.addEventListener('click', function() {
         if (playerActive) {
-            // Stop and remove the iframe
-            playerContainer.innerHTML = '';
+            // Pause the radio stream
+            radioStream.pause();
             toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: green;"></i> Turn ON Radio'; // Update button text and icon color to green
             playerActive = false;
         } else {
-            // Re-create and append the iframe
-            const iframe = document.createElement('iframe');
-            iframe.setAttribute('src', 'https://www.rsstreaming.com:8002/Live?listening_via_radio.ie/tune');
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.frameBorder = 'no';
-            iframe.scrolling = 'no';
-            iframe.allowFullscreen = true;
-            playerContainer.appendChild(iframe);
-            toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: red;"></i> Turn OFF Radio'; // Update button text back and icon color to red
+            // Play the radio stream
+            radioStream.play();
+            toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: red;"></i> Turn OFF Radio'; // Update button text and icon color to red
             playerActive = true;
         }
     });

@@ -167,6 +167,14 @@ button:hover {
   cursor: pointer;
 }
 
+#audioPlayerContainer {
+  text-align: center; /* Center the audio player */
+}
+
+#togglePlayer i {
+  margin-right: 5px;
+}
+
 /* Animation and Responsiveness */
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
