@@ -5,6 +5,9 @@
     <title>Schedule Carousel</title>
     <link rel="stylesheet" href="style.css">   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelementplayer.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.16/mediaelement-and-player.min.js"></script>
+
 </head>
 
 <body>
@@ -32,9 +35,11 @@
     </div>
     <div id="now-playing-banner"><span id="now-playing-text">Now Playing: Loading...</span></div>
     <div id="audioPlayerContainer">
-        <audio id="radioStream" controls>
-            <source src="http://www.rsstreaming.com:8002/Live?" type="audio/mpeg">
-        </audio>
+<audio id="radioStream" controls preload="none">
+    <source src="http://rsstreaming.com:8002/live.m3u" type="audio/mpeg">
+</audio>
+
+
     </div>
     <button id="togglePlayer"><i class="fas fa-power-off"></i> Turn OFF Radio</button>
 
@@ -64,6 +69,9 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+    var player = new MediaElementPlayer('radioStream');
+</script>
 </body>
 </html>
 
