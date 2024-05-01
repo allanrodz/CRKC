@@ -1,15 +1,20 @@
 /* Global Styles */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: Verdana, sans-serif;
+  background: #f4f4f4;
+  padding: 20px;
+  color: #333;
 }
 
 /* Slideshow Styles */
 .slideshow-container {
-  max-width: 100%;
+  max-width: 1000px; /* Adjusted max width for larger screens */
   position: relative;
   margin: auto;
 }
@@ -20,13 +25,15 @@ body {
 
 img {
   vertical-align: middle;
+  width: 100%; /* Ensure images are responsive */
+  height: auto;
 }
 
 /* Carousel Styles */
 .carousel {
   position: relative;
-  max-width: 100%;
-  margin: auto;
+  max-width: 1000px; /* Match the slideshow container width */
+  margin: 20px auto;
   overflow: hidden;
 }
 
@@ -43,13 +50,13 @@ button.prev, button.next {
   top: 50%;
   width: auto;
   margin-top: -22px;
-  padding: 1vw;
+  padding: 16px;
   color: white;
   font-weight: bold;
-  font-size: calc(10px + 1vw);
+  font-size: 18px;
   transition: 0.6s ease;
   user-select: none;
-  background-color: black;
+  background-color: rgba(0,0,0,0.8);
 }
 
 button.next {
@@ -60,10 +67,11 @@ button.next {
 
 button.prev {
   left: 0;
+  background-color: black;
 }
 
 button:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: #555;
 }
 
 /* Overlay Styles */
@@ -92,30 +100,8 @@ button:hover {
   cursor: auto;
 }
 
-.podcasts-overlay .overlay-content {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  box-sizing: border-box; /* Include padding and border in the element's size */
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 10px; /* Rounded corners */
-}
-
-/* Adjust the .podcasts-overlay specifically for the GIF content */
-.podcasts-overlay .overlay-content img {
-  width: 100%; /* Full width of the content area */
-  max-width: 640px; /* Limit the width to maintain aspect ratio */
-  height: auto; /* Adjust height automatically */
-  aspect-ratio: 9 / 16; /* Maintain a 9:16 aspect ratio for the GIF */
-}
-
-/* Ensure clicking the overlay outside the content closes it */
-.overlay:not(.overlay-content) {
-  cursor: pointer;
-}
-
-/* Schedule Button Styles */
-#openSchedule {
+/* Schedule and Toggle Button Styles */
+#openSchedule, #togglePlayer {
   display: block;
   margin: 20px auto;
   background-color: black;
@@ -128,7 +114,7 @@ button:hover {
   transition: background-color 0.3s, color 0.3s;
 }
 
-#openSchedule:hover {
+#openSchedule:hover, #togglePlayer:hover {
   background-color: #FFBF00;
   color: black;
 }
@@ -140,75 +126,29 @@ button:hover {
   color: white;
   text-align: center;
   padding: 10px 0;
-  font-family: Verdana, sans-serif;
   font-size: 20px;
 }
 
-#now-playing-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
-}
-
-/* Radio Toggle Button Styles */
-#togglePlayer {
-  width: 100%;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 20px 0;
-  border: none;
-  cursor: pointer;
-}
-
+/* Radio Player Container */
 #audioPlayerContainer {
-  text-align: center; /* Center the audio player */
+  text-align: center;
+  margin: 20px auto;
+  width: 45%; /* Full width */
+  max-width: 640px; /* Maximum width of the player */
 }
 
-#togglePlayer i {
-  margin-right: 5px;
+audio {
+  width: 100%; /* Full width of the container */
+  max-width: 640px; /* Limiting the maximum width */
 }
 
-/* Animation and Responsiveness */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-.pulse {
-  animation: pulse 10s infinite;
-}
-
+/* Responsive Design Adjustments */
 @media (max-width: 768px) {
+  .mySlides, .carousel, .overlay-content {
+    max-width: 95%; /* Slight padding on smaller screens */
+  }
   button.prev, button.next {
-      font-size: calc(12px + 2vw);
-      padding: 1.5vw;
-      margin-top: -20px;
+    padding: 12px;
+    font-size: 16px;
   }
-
-  .carousel-items div {
-      padding: 20px 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  button.prev, button.next {
-      font-size: calc(14px + 3vw);
-      padding: 2vw;
-      margin-top: -15px;
-  }
-
-  .carousel-items div {
-      padding: 20px 40px;
-  }
-}
-
-@media only screen and (max-width: 300px) {
-  .text { font-size: 11px; }
 }
