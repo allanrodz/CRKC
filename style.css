@@ -217,12 +217,13 @@ button:hover {
   text-align: left; /* Centers the audio element */
   margin: 20px auto; /* Adds margin for spacing and centers the container */
   padding: 0 0px; /* Adds padding to prevent content from touching the edges */
-  width: 100%;
+  max-width: 1000px;
 }
+
 
 audio {
   width: 100%; /* Ensures the audio element does not exceed the container width */
-  max-width: 640px; /* Maximum width of the audio player */
+  max-width: 100%; /* Maximum width of the audio player */
   margin: auto; /* Centers the audio element horizontally */
 }
 
