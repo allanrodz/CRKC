@@ -217,9 +217,8 @@ button:hover {
   text-align: left; /* Centers the audio element */
   margin: 20px auto; /* Adds margin for spacing and centers the container */
   padding: 0 0px; /* Adds padding to prevent content from touching the edges */
-  max-width: 1000px;
+  max-width: 100%;
 }
-
 
 audio {
   width: 100%; /* Ensures the audio element does not exceed the container width */
