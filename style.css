@@ -202,3 +202,27 @@ audio {
     max-width: 95%;
   }
 }
+
+/* WhatsApp Button Styles */
+#whatsappButton {
+  display: block;
+  text-align: center;
+  margin: 20px auto;
+  text-decoration: none;
+}
+
+#whatsappButton button {
+  background-color: #25D366;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#whatsappButton button:hover {
+  background-color: #128C7E;
+}
+
