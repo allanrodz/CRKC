@@ -163,20 +163,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     toggleButton.addEventListener('click', function() {
         if (playerActive) {
-            // Pause the radio stream
             radioStream.pause();
-            toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: green;"></i> Turn ON Radio'; // Update button text and icon color to green
+            toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: green;"></i> Turn ON Radio';
             playerActive = false;
         } else {
-            // Play the radio stream
             radioStream.play();
-            toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: red;"></i> Turn OFF Radio'; // Update button text and icon color to red
+            toggleButton.innerHTML = '<i class="fas fa-power-off" style="color: red;"></i> Turn OFF Radio';
             playerActive = true;
         }
     });
 
-
-    // Schedule and Podcasts Overlay Functionality
+    // Schedule Overlay Functionality
     const openScheduleButton = document.getElementById('openSchedule');
     const scheduleOverlay = document.getElementById('scheduleOverlay');
     openScheduleButton.onclick = function() {
@@ -187,17 +184,4 @@ document.addEventListener('DOMContentLoaded', function() {
             scheduleOverlay.style.display = "none";
         }
     };
-
-    function showPodcastsOverlay() {
-        const podcastsOverlay = document.getElementById('podcastsOverlay');
-        podcastsOverlay.style.display = 'flex';
-    }
-    const podcastBanner = document.querySelector('.podcast-banner-slide');
-    podcastBanner.addEventListener('click', showPodcastsOverlay);
-
-    podcastsOverlay.addEventListener('click', function(event) {
-        if (event.target == podcastsOverlay) {
-            podcastsOverlay.style.display = 'none';
-        }
-    });
 });
