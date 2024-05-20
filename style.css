@@ -5,6 +5,8 @@
 
 body {
   font-family: Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Slideshow Styles */
@@ -12,14 +14,18 @@ body {
   max-width: 100%;
   position: relative;
   margin: auto;
+  overflow: hidden;
 }
 
 .mySlides {
   display: none;
+  text-align: center;
 }
 
 img {
-  vertical-align: middle;
+  width: 100%;
+  height: 300px; /* Fixed height for all images */
+  /* object-fit: cover; Ensure the images cover the area without stretching */
 }
 
 /* Carousel Styles */
@@ -92,28 +98,6 @@ button:hover {
   cursor: auto;
 }
 
-.podcasts-overlay .overlay-content {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  box-sizing: border-box; /* Include padding and border in the element's size */
-  background-color: rgba(0,0,0,0.5);
-  border-radius: 10px; /* Rounded corners */
-}
-
-/* Adjust the .podcasts-overlay specifically for the GIF content */
-.podcasts-overlay .overlay-content img {
-  width: 100%; /* Full width of the content area */
-  max-width: 640px; /* Limit the width to maintain aspect ratio */
-  height: auto; /* Adjust height automatically */
-  aspect-ratio: 9 / 16; /* Maintain a 9:16 aspect ratio for the GIF */
-}
-
-/* Ensure clicking the overlay outside the content closes it */
-.overlay:not(.overlay-content) {
-  cursor: pointer;
-}
-
 /* Schedule Button Styles */
 #openSchedule {
   display: block;
@@ -167,21 +151,11 @@ button:hover {
   cursor: pointer;
 }
 
-
-
 #togglePlayer i {
   margin-right: 5px;
 }
 
-/* Animation and Responsiveness */
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
 
-.pulse {
-  animation: pulse 10s infinite;
-}
 
 @media (max-width: 768px) {
   button.prev, button.next {
@@ -207,28 +181,24 @@ button:hover {
   }
 }
 
-@media only screen and (max-width: 300px) {
-  .text { font-size: 11px; }
-}
-
-
 /* Audio Player Container Styles */
 #audioPlayerContainer {
-  text-align: left; /* Centers the audio element */
-  margin: 20px auto; /* Adds margin for spacing and centers the container */
-  padding: 0 0px; /* Adds padding to prevent content from touching the edges */
-  max-width: 100%;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  padding: 0;
 }
 
 audio {
-  width: 100%; /* Ensures the audio element does not exceed the container width */
-  max-width: 100%; /* Maximum width of the audio player */
-  margin: auto; /* Centers the audio element horizontally */
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Adjustments for smaller screens */
 @media (max-width: 768px) {
   audio {
-    max-width: 95%; /* Allows some margin on smaller screens */
+    max-width: 95%;
   }
 }
